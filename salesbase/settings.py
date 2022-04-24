@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'users.apps.UsersConfig',
     'whitenoise.runserver_nostatic',
     'crispy_forms',
     'django.contrib.admin',
