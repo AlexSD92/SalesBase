@@ -20,4 +20,5 @@ from users import views
 urlpatterns = [
     path('', views.LoginView, name='login'),
     path('register/', views.RegisterUserView, name='register'),
+    path('dashboard', views.DashboardView, name='dashboard')
 ]
