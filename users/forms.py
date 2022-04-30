@@ -1,14 +1,15 @@
-from django.contrib.auth.forms import UserCreationForm
+from dataclasses import fields
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 
-class RegisterUserForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ('username', 'email', 'password1', 'password2')
+from users.models import CustomUserModel
 
-    def save(self, commit=True):
-        user = super(RegisterUserForm, self).save(commit=False)
-        user.email = self.cleaned_data['email']
-        if commit:
-            user.save()
-        return user
+class CustomUserForm(UserCreationForm):
+    class Meta(UserCreationForm):
+        model=CustomUserModel
+        fields = UserCreationForm.Meta.fields+('role',)
+
+class CustomUserUpdateForm(UserChangeForm):
+    class Meta:
+        model=CustomUserModel
+        fields=UserChangeForm.Meta.fields
