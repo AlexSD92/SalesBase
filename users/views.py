@@ -8,7 +8,7 @@ def LoginView(request):
     return render(request, 'users/login.html')
 
 def DashboardView(request):
-    return render(request, 'users/dashboard.html')
+    return render(request, 'dashboard.html')
 
 def RegisterUserView(request):
     if request.method =='POST':
@@ -32,7 +32,7 @@ def LoginView(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f'You are now logged in as {username}.')
-                return render(request, 'users/dashboard.html')
+                return render(request, 'dashboard.html')
             else:
                 messages.error(request, 'Invalid username or password.')
         else:
