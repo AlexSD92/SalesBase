@@ -28,8 +28,5 @@ urlpatterns = [
     path('', auth_views.LoginView.as_view(template_name='users/login.html',redirect_authenticated_user=True), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('dashboard/', login_required(DashboardAccountsListView.as_view()), name='dashboard'),
-    # path('dashboard/', login_required(TemplateView.as_view(template_name='dashboard.html')), name='dashboard'),
     path('accounts/', include('accounts.urls'), name='accounts'),
 ]
-
-    # path('', AccountsListView.as_view(), name='account-list-view'),
