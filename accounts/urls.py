@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from django.contrib.auth.decorators import login_required
-from .views import AccountsListView, AccountsDetailView
+from .views import AccountsListView, AccountsDetailView, CreateAccountsView
 
 
 urlpatterns = [
     path('', login_required(AccountsListView.as_view()), name='account-list-view'),
     path('accounts/<int:pk>', login_required(AccountsDetailView.as_view()), name='accounts-detail-view'),
+    path('create/', login_required(CreateAccountsView.as_view()), name='create-account'),
 ]
