@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse_lazy
 from .models import AccountsModel
 
@@ -32,4 +32,11 @@ class CreateAccountsView(CreateView):
     model = AccountsModel
     template_name = 'accounts/accounts_create.html'
     fields = ['account_name', 'account_ind', 'account_size', 'account_rev', 'owner']
+    success_url = reverse_lazy('account-list-view')
+
+
+class UpdateAccountsView(UpdateView):
+    model = AccountsModel
+    template_name = 'accounts/accounts_update.html'
+    fields = ['account_name', 'account_ind', 'account_size', 'account_rev']
     success_url = reverse_lazy('account-list-view')
