@@ -5,8 +5,8 @@ from django.urls import reverse
 
 
 class AccountsModel(models.Model):
-    account_name = models.TextField(max_length=50, null=True, blank=False)
-    account_ind = models.TextField(max_length=50, null=True, blank=False)
+    account_name = models.CharField(max_length=50, null=True, blank=False)
+    account_ind = models.CharField(max_length=50, null=True, blank=False)
     account_size = models.PositiveIntegerField(null=True, blank=False)
     account_rev = models.PositiveIntegerField(null=True, blank=False)
     created = models.DateTimeField(auto_now_add=True)
