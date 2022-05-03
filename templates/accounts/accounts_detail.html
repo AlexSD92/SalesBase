@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class=".container-fluid ml-5 mr-5">
+
+    <div class="post-entry">
+        <h1 class="mt-5 text-center">{{ object.account_name }}</h1>
+    </div>
+
+    <div class="row mt-5">
+            <div class="col-4 text-break">
+        <h3>Account Information</h3>
+        <ul class="list-unstyled">
+            <li>Industry: {{ object.account_ind }}</li>
+            <li>Employees: {{ object.account_size }}</li>
+            <li>Revenue: £{{ object.account_rev }}</li>
+            <li>Created: {{ object.created }}</li>
+            <li>Last Updated: {{ object.updated }}</li>
+        </ul>
+    </div>
+
+    <div class="col-4 text-break">
+        <h3>Contact Information</h3>
+        <ul class="list-unstyled">
+            <li>Industry: {{ object.account_ind }}</li>
+            <li>Employees: {{ object.account_size }}</li>
+            <li>Revenue: £{{ object.account_rev }}</li>
+            <li>Created: {{ object.created }}</li>
+            <li>Last Updated: {{ object.updated }}</li>
+        </ul>
+    </div>
+
+    <div class="col-4 text-break">
+        <h3>Opportunity Information</h3>
+        <ul class="list-unstyled">
+            <li>Industry: {{ object.account_ind }}</li>
+            <li>Employees: {{ object.account_size }}</li>
+            <li>Revenue: £{{ object.account_rev }}</li>
+            <li>Created: {{ object.created }}</li>
+            <li>Last Updated: {{ object.updated }}</li>
+        </ul>
+    </div>
+    </div>
+
+
+
+</div>
+
+<!-- account_ind = models.TextField(max_length=50, null=True, blank=False)
+account_size = models.PositiveIntegerField(null=True, blank=False)
+account_rev = models.PositiveIntegerField(null=True, blank=False)
+created = models.DateTimeField(auto_now_add=True)
+updated = models.DateTimeField(auto_now=True) -->
+
+{% endif %}
+
+{% endblock %}

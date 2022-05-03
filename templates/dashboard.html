@@ -4,7 +4,66 @@
 
 {% if user.is_authenticated %}
 
-    <h1>Hi {{ user.username }}</h1>
+<div class="container mt-5">
+
+    <h1 class="text-center">Hi {{ user.username }}</h1>
+
+</div>
+
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-4 text-break">
+            <h1>Recent Accounts</h1>
+            <table class="table table-striped table-responsive-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Accounts</th>
+                        <th scope="col">Date Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for account in accountsmodel_list %}
+                    <tr>
+                        <th scope="row">{{ account.pk }}</th>
+                        <td><a href="{% url 'accounts-detail-view' account.pk %}">{{ account.account_name }}</a></td>
+                        <td>{{ account.created }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-4 text-break">
+            <h1>Contacts</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sollicitudin mi non elit porttitor, ut
+                mattis
+                nulla blandit. In sit amet turpis in dolor blandit ultricies. Praesent sed tristique felis. Cras
+                bibendum turpis
+                vel nunc pellentesque, ut tempor orci vehicula. Proin venenatis hendrerit enim, in viverra est
+                condimentum et.
+                Fusce in neque ac enim ultrices dictum. Vestibulum eu velit ante. Vestibulum pretium ipsum arcu, ac
+                scelerisque
+                velit gravida eu. Donec nec neque dictum, mollis dolor at, ornare erat. Nam et pellentesque justo, sed
+                feugiat
+                nunc.</p>
+        </div>
+        <div class="col-4 text-break">
+            <h1>Opportunities</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sollicitudin mi non elit porttitor, ut
+                mattis
+                nulla blandit. In sit amet turpis in dolor blandit ultricies. Praesent sed tristique felis. Cras
+                bibendum turpis
+                vel nunc pellentesque, ut tempor orci vehicula. Proin venenatis hendrerit enim, in viverra est
+                condimentum et.
+                Fusce in neque ac enim ultrices dictum. Vestibulum eu velit ante. Vestibulum pretium ipsum arcu, ac
+                scelerisque
+                velit gravida eu. Donec nec neque dictum, mollis dolor at, ornare erat. Nam et pellentesque justo, sed
+                feugiat
+                nunc.</p>
+        </div>
+    </div>
+</div>
+</div>
 
 {% endif %}
 
