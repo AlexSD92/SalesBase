@@ -2,10 +2,10 @@ from django.test import TestCase
 from django.urls import reverse
 
 from users.models import CustomUserModel
+from django.contrib.auth import get_user_model
 from .models import AccountsModel
 
-
-class AccountsModelTests(TestCase):
+class AccountsModelTestsUnauth(TestCase):
 
     @classmethod
     def setUpTestData(cls):
@@ -19,14 +19,31 @@ class AccountsModelTests(TestCase):
         self.assertEqual(self.account.account_rev, '1')
         self.assertEqual(self.account.owner, CustomUserModel.objects.get(id=1))
 
-    def test_is_the_url_at_the_correct_location(self):
-        response = self.client.get('/')
-        self.assertEqual(response.status_code, 200)
+    def test_URL_correct_location_accounts_list(self):
+        response = self.client.get('/accounts/')
+        self.assertEqual(response.status_code, 302)
 
-    def test_is_the_url_available_by_name(self):
+    def test_URL_available_by_name_accounts_list(self):
         response = self.client.get(reverse('account-list-view'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
-    def test_is_the_template_name_correct(self):
-        response = self.client.get(reverse('account-list-view'))
-        self.assertTemplateUsed(response, 'accounts/accounts_list.html')
+    def test_URL_correct_location_accounts_detail(self):
+        response = self.client.get('/accounts/1/')
+        self.assertEqual(response.status_code, 302)
+
+    def test_URL_correct_location_accounts_detail(self):
+        response = self.client.get('/accounts/create/')
+        self.assertEqual(response.status_code, 302)
+
+    def test_URL_correct_location_accounts_update(self):
+        response = self.client.get('/accounts/1/update/')
+        self.assertEqual(response.status_code, 302)
+
+    def test_URL_correct_location_ccounts_delete(self):
+        response = self.client.get('/accounts/1/delete/')
+        self.assertEqual(response.status_code, 302)
+
+    # def test_AccountsListView(self):
+    #     response = self.client.get(reverse('account-list-view'))
+    #     self.assertEqual(response.status_code, 302)
+    #     self.assertTemplateUsed(response, 'accounts/accounts_list.html')
