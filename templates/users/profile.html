@@ -6,13 +6,14 @@
 
 <div class="container mt-5">
 
-    <h1 class="text-center">Hi {{ user.username }}</h1>
-    <!-- {% for message in messages %}
-        <div class="alert {{ message.tags }} alert-dismissable fade show" role="alert">
-            {{ messsage|safe }}
-            <button class="bt-close" type="button" data-bs-dismiss="alert">Close</button>
-        </div>
-    {% endfor %} -->
+    <h1 class="text-center">Hi {{ user.username }}, welcome to your profile.</h1>
+
+    {% if "placeholder" in user.profile.image.url %}
+        <img src="https://res.cloudinary.com/alexsd92/image/upload/v1652005948/media/static/default.jpg" alt="" class="rounded-circle account-img">
+    {% else %}
+        <img src="{{ user.profile.image.url }}" alt="" class="rounded-circle account-img">
+    {% endif %}
+
 
 </div>
 
