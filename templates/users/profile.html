@@ -2,6 +2,13 @@
 
 {% block content %}
 
+{% load crispy_forms_tags %}
+
+{% load cloudinary %}      
+
+<!-- {% cloudinary user.profile.image format="jpg" width=120 height=80 crop="fill" %} -->
+<!-- https://cloudinary.com/documentation/django_image_and_video_upload#django_forms_and_models -->
+
 {% if user.is_authenticated %}
 
 <div class="container mt-5">
@@ -11,65 +18,32 @@
     {% if "placeholder" in user.profile.image.url %}
         <img src="https://res.cloudinary.com/alexsd92/image/upload/v1652005948/media/static/default.jpg" alt="" class="rounded-circle account-img">
     {% else %}
-        <img src="{{ user.profile.image.url }}" alt="" class="rounded-circle account-img">
+        <!-- <img src="{{ user.profile.image.url }}" alt="" class="rounded-circle account-img"> -->
+        <div class="rounded-circle">{% cloudinary user.profile.image height=200 width=200 format="jpg" crop="thumb" radius="max" background="#F8F9FA" %}</div>
+
+        
     {% endif %}
 
+    <div class="w-25 h-25 bg-dark"></div>
 
 </div>
 
-<div class="container-fluid">
-    <div class="row mt-5">
-        <div class="col-4 text-break">
-            <h1>Recent Accounts</h1>
-            <table class="table table-striped table-responsive-sm">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Accounts</th>
-                        <th scope="col">Date Created</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for account in accountsmodel_list %}
-                    <tr>
-                        <th scope="row">{{ account.pk }}</th>
-                        <td><a href="{% url 'accounts-detail-view' account.pk %}">{{ account.account_name }}</a></td>
-                        <td>{{ account.created }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <div class="col-4 text-break">
-            <h1>Contacts</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sollicitudin mi non elit porttitor, ut
-                mattis
-                nulla blandit. In sit amet turpis in dolor blandit ultricies. Praesent sed tristique felis. Cras
-                bibendum turpis
-                vel nunc pellentesque, ut tempor orci vehicula. Proin venenatis hendrerit enim, in viverra est
-                condimentum et.
-                Fusce in neque ac enim ultrices dictum. Vestibulum eu velit ante. Vestibulum pretium ipsum arcu, ac
-                scelerisque
-                velit gravida eu. Donec nec neque dictum, mollis dolor at, ornare erat. Nam et pellentesque justo, sed
-                feugiat
-                nunc.</p>
-        </div>
-        <div class="col-4 text-break">
-            <h1>Opportunities</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sollicitudin mi non elit porttitor, ut
-                mattis
-                nulla blandit. In sit amet turpis in dolor blandit ultricies. Praesent sed tristique felis. Cras
-                bibendum turpis
-                vel nunc pellentesque, ut tempor orci vehicula. Proin venenatis hendrerit enim, in viverra est
-                condimentum et.
-                Fusce in neque ac enim ultrices dictum. Vestibulum eu velit ante. Vestibulum pretium ipsum arcu, ac
-                scelerisque
-                velit gravida eu. Donec nec neque dictum, mollis dolor at, ornare erat. Nam et pellentesque justo, sed
-                feugiat
-                nunc.</p>
-        </div>
-    </div>
-</div>
+<div class="bg-dark min-vh-100 d-flex align-items-center justify-content-center">
+    
+    <form class="p-5 bg-light rounded form-signin col-6 align-self-center" action="" method="POST" enctype="multipart/form-data">
+
+        <h1 class="mb-5">Register for an account.</h1>
+
+        {% csrf_token %}
+        {{ p_form|crispy }}
+        {{ u_form|crispy }}
+
+        <button class="btn btn-primary" type="submit">Register</button>
+
+        <p class="mt-5">Already have an account? <a href="{% url 'login' %}">Get logged in!</a></p>
+
+    </form>
+
 </div>
 
 {% endif %}
