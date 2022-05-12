@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
+    'contacts.apps.ContactsConfig',
     'accounts.apps.AccountsConfig',
     'whitenoise.runserver_nostatic',
     'crispy_forms',
