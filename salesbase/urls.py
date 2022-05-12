@@ -29,4 +29,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('dashboard/', login_required(DashboardAccountsListView.as_view()), name='dashboard'),
     path('accounts/', include('accounts.urls'), name='accounts'),
+    path('contacts/', include('contacts.urls'), name='contacts'),
 ]
