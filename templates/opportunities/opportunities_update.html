@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="bg-dark min-vh-100 d-flex align-items-center justify-content-center">
+    
+    <form class="p-5 bg-light rounded form-signin col-6 align-self-center" action="" method="POST">
+
+        <h1 class="mb-5">Create a New Opportunity.</h1>
+
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-primary" type="submit" value="Save">Update Opportunity</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

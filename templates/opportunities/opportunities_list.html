@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="container mt-5">
+
+    <h1 class="text-center">{{ user.username }}'s Opportunities</h1>
+
+</div>
+
+<div class=".container-fluid ml-5 mr-5">
+
+    <a href="{% url 'create-opportunity' %}" class="btn btn-outline-primary ml-5 mt-5">Create Opportunity</a>
+
+    <div class="row">
+        <div class="col-sm m-5">
+            <table class="table table-striped table-responsive-sm">
+                <caption>List of opportunities</caption>
+                <thead class="thead-dark">
+                    
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Opportunity</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    {% for opportunity in opportunitiesmodel_list %}
+                    <tr>
+                        <th scope="row">{{ opportunity.pk }}</th>
+                        <td><a href="{% url 'opportunities-detail-view' opportunity.pk %}">{{ opportunity.opportunity_name }}</a></td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endif %}
+
+{% endblock %}
