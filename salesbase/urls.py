@@ -30,4 +30,5 @@ urlpatterns = [
     path('dashboard/', login_required(DashboardAccountsListView.as_view()), name='dashboard'),
     path('accounts/', include('accounts.urls'), name='accounts'),
     path('contacts/', include('contacts.urls'), name='contacts'),
+    path('opportunities/', include('opportunities.urls'), name='opportunities'),
 ]
