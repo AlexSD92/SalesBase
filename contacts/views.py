@@ -31,8 +31,12 @@ class DashboardContactsListView(ListView):
 class CreateContactsView(CreateView):
     model = ContactsModel
     template_name = 'contacts/contacts_create.html'
-    fields = ['contact_name', 'contact_company', 'contact_role', 'contact_opp', 'owner']
+    fields = ['contact_name', 'contact_company', 'contact_role', 'contact_opp']
     success_url = reverse_lazy('contacts-list-view')
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
 
 
 class UpdateContactsView(UpdateView):
