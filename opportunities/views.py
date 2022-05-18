@@ -31,14 +31,18 @@ class DashboardOpportunitiesListView(ListView):
 class CreateOpportunitiesView(CreateView):
     model = OpportunitiesModel
     template_name = 'opportunities/opportunities_create.html'
-    fields = ['opportunity_name', 'opportunity_company', 'opportunity_company_test', 'owner']
+    fields = ['opportunity_name', 'account_name', 'opportunity_value']
     success_url = reverse_lazy('opportunities-list-view')
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
 
 
 class UpdateOpportunitiesView(UpdateView):
     model = OpportunitiesModel
     template_name = 'opportunities/opportunities_update.html'
-    fields = ['opportunity_name', 'opportunity_company', 'opportunity_company_test']
+    fields = ['opportunity_name', 'account_name', 'opportunity_value']
     success_url = reverse_lazy('opportunities-list-view')
 
 
