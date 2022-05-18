@@ -31,14 +31,18 @@ class DashboardAccountsListView(ListView):
 class CreateAccountsView(CreateView):
     model = AccountsModel
     template_name = 'accounts/accounts_create.html'
-    fields = ['account_name', 'account_ind', 'account_size', 'account_rev', 'owner']
+    fields = ['account_name', 'account_ind', 'account_size']
     success_url = reverse_lazy('account-list-view')
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
 
 
 class UpdateAccountsView(UpdateView):
     model = AccountsModel
     template_name = 'accounts/accounts_update.html'
-    fields = ['account_name', 'account_ind', 'account_size', 'account_rev']
+    fields = ['account_name', 'account_ind', 'account_size']
     success_url = reverse_lazy('account-list-view')
 
 
