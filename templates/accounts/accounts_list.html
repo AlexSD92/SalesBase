@@ -25,7 +25,6 @@
                         <th scope="col">Account</th>
                         <th scope="col">Industry</th>
                         <th scope="col">Employees</th>
-                        <th scope="col">Revenue</th>
                         <th scope="col">Date Created</th>
                         <th scope="col">Last Updated</th>
                         <th scope="col">Owner</th>
@@ -39,7 +38,6 @@
                         <td><a href="{% url 'accounts-detail-view' account.pk %}">{{ account.account_name }}</a></td>
                         <td>{{ account.account_ind }}</td>
                         <td>{{ account.account_size }}</td>
-                        <td>{{ account.account_rev }}</td>
                         <td>{{ account.created }}</td>
                         <td>{{ account.updated }}</td>
                         <td>{{ account.owner }}</td>

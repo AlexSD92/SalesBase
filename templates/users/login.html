@@ -10,9 +10,9 @@
 
         {% if messages %}
 
-            <ul class="messages">
+            <ul class="messages list-unstyled">
                 {% for message in messages %}
-                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    <li {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>{{ message }}</li>
                 {% endfor %}
             </ul>
 
@@ -24,7 +24,7 @@
         {{ form|crispy }}
         <button class="btn btn-primary" type="submit">Log In</button>
         
-        <p class="mt-5">Don't have an account? <a href="{% url 'register' %}">Register for an account!</a></p>
+        <p class="mt-5">Don't have an account? <a href="{% url 'register' %}">Apply for an account!</a></p>
 
     </form>
 

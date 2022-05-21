@@ -7,19 +7,13 @@
 <div class="container mt-5">
 
     <h1 class="text-center">Hi {{ user.username }}</h1>
-    <!-- {% for message in messages %}
-        <div class="alert {{ message.tags }} alert-dismissable fade show" role="alert">
-            {{ messsage|safe }}
-            <button class="bt-close" type="button" data-bs-dismiss="alert">Close</button>
-        </div>
-    {% endfor %} -->
 
 </div>
 
 <div class="container-fluid">
     <div class="row mt-5">
         <div class="col-4 text-break">
-            <h1>Recent Accounts</h1>
+            <h1>Recent Contacts</h1>
             <table class="table table-striped table-responsive-sm">
                 <thead class="thead-dark">
                     <tr>
@@ -29,43 +23,57 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for account in accountsmodel_list %}
-                    <tr>
-                        <th scope="row">{{ account.pk }}</th>
-                        <td><a href="{% url 'accounts-detail-view' account.pk %}">{{ account.account_name }}</a></td>
-                        <td>{{ account.created }}</td>
-                    </tr>
-                    {% endfor %}
+                     {% for account in accountsmodel_list %} 
+                     <tr>
+                         <td>{{ account.pk }}</td> 
+                         <td>{{ account.account_name }}</td> 
+                         <td>{{ account.created }}</td>  
+                     </tr>
+                     {% endfor %}   
                 </tbody>
             </table>
         </div>
         <div class="col-4 text-break">
-            <h1>Contacts</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sollicitudin mi non elit porttitor, ut
-                mattis
-                nulla blandit. In sit amet turpis in dolor blandit ultricies. Praesent sed tristique felis. Cras
-                bibendum turpis
-                vel nunc pellentesque, ut tempor orci vehicula. Proin venenatis hendrerit enim, in viverra est
-                condimentum et.
-                Fusce in neque ac enim ultrices dictum. Vestibulum eu velit ante. Vestibulum pretium ipsum arcu, ac
-                scelerisque
-                velit gravida eu. Donec nec neque dictum, mollis dolor at, ornare erat. Nam et pellentesque justo, sed
-                feugiat
-                nunc.</p>
+            <h1>Recent Contacts</h1>
+            <table class="table table-striped table-responsive-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Contacts</th>
+                        <th scope="col">Date Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contact in contactsmodel %} 
+                    <tr>
+                        <td>{{ contact.pk }}</td> 
+                        <td>{{ contact.contact_name }}</td> 
+                        <td>{{ contact.created }}</td>  
+                    </tr>
+                    {% endfor %}  
+                </tbody>
+            </table>
         </div>
         <div class="col-4 text-break">
-            <h1>Opportunities</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sollicitudin mi non elit porttitor, ut
-                mattis
-                nulla blandit. In sit amet turpis in dolor blandit ultricies. Praesent sed tristique felis. Cras
-                bibendum turpis
-                vel nunc pellentesque, ut tempor orci vehicula. Proin venenatis hendrerit enim, in viverra est
-                condimentum et.
-                Fusce in neque ac enim ultrices dictum. Vestibulum eu velit ante. Vestibulum pretium ipsum arcu, ac
-                scelerisque
-                velit gravida eu. Donec nec neque dictum, mollis dolor at, ornare erat. Nam et pellentesque justo, sed
-                feugiat
-                nunc.</p>
+            <h1>Recent Opportunities</h1>
+            <table class="table table-striped table-responsive-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Opportunities</th>
+                        <th scope="col">Date Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for opportunity in opportunitiesmodel %} 
+                    <tr>
+                        <td>{{ opportunity.pk }}</td> 
+                        <td>{{ opportunity.opportunity_name }}</td> 
+                        <td>{{ opportunity.created }}</td>  
+                    </tr>
+                    {% endfor %}  
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
