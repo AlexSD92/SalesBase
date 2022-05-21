@@ -20,14 +20,6 @@ class ContactsDetailView(DetailView):
         return ContactsModel.objects.filter(owner = self.request.user)
 
 
-class DashboardContactsListView(ListView):
-    model = ContactsModel
-    template_name = 'dashboard.html'
-
-    def get_queryset(self):
-        return ContactsModel.objects.filter(owner = self.request.user)
-
-
 class CreateContactsView(CreateView):
     model = ContactsModel
     template_name = 'contacts/contacts_create.html'

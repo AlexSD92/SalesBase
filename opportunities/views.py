@@ -20,14 +20,6 @@ class OpportunitiesDetailView(DetailView):
         return OpportunitiesModel.objects.filter(owner = self.request.user)
 
 
-class DashboardOpportunitiesListView(ListView):
-    model = OpportunitiesModel
-    template_name = 'dashboard.html'
-
-    def get_queryset(self):
-        return OpportunitiesModel.objects.filter(owner = self.request.user)
-
-
 class CreateOpportunitiesView(CreateView):
     model = OpportunitiesModel
     template_name = 'opportunities/opportunities_create.html'

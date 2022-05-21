@@ -1,7 +1,9 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import AccountsModel
+from contacts.models import ContactsModel
+from opportunities.models import OpportunitiesModel
 
 
 class AccountsListView(ListView):
@@ -20,12 +22,15 @@ class AccountsDetailView(DetailView):
         return AccountsModel.objects.filter(owner = self.request.user)
 
 
-class DashboardAccountsListView(ListView):
+class DashboardListView(ListView):
     model = AccountsModel
     template_name = 'dashboard.html'
 
-    def get_queryset(self):
-        return AccountsModel.objects.filter(owner = self.request.user)
+    def get_context_data(self, **kwargs):
+        context = super(DashboardListView, self).get_context_data(**kwargs)
+        context['contactsmodel'] = ContactsModel.objects.all()
+        context['opportunitiesmodel'] = OpportunitiesModel.objects.all()
+        return context
 
 
 class CreateAccountsView(CreateView):
