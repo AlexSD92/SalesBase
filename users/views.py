@@ -7,9 +7,12 @@ def RegisterUserView(request):
     if request.method == 'POST':
         form = CreateNewUser(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            user.is_active = False
+            user.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}')
+            messages.success(request, f'Successful account application for {username}')
+            messages.warning(request, f'Please contact your administrator to activate your account.')
             return redirect('login')
     else:
         form = CreateNewUser()
