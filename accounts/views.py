@@ -21,7 +21,6 @@ class AccountsDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(AccountsDetailView, self).get_context_data(**kwargs)
-        # context['contactsmodel'] = ContactsModel.objects.filter(contact_company = self.request.account_name.id)
         context['opportunitiesmodel'] = OpportunitiesModel.objects.filter(owner = self.request.user)
         return context
 
@@ -55,7 +54,7 @@ class CreateAccountsView(SuccessMessageMixin, CreateView):
 class UpdateAccountsView(SuccessMessageMixin, UpdateView):
     model = AccountsModel
     template_name = 'accounts/accounts_update.html'
-    fields = ['account_name', 'account_ind', 'account_size']
+    fields = ['account_name', 'account_ind', 'account_size', 'progress']
     success_url = reverse_lazy('account-list-view')
     success_message = '%(account_name)s successfully updated!'
 

@@ -36,7 +36,7 @@ class CreateOpportunitiesView(SuccessMessageMixin, CreateView):
 class UpdateOpportunitiesView(SuccessMessageMixin, UpdateView):
     model = OpportunitiesModel
     template_name = 'opportunities/opportunities_update.html'
-    fields = ['opportunity_name', 'account_name', 'opportunity_value']
+    fields = ['opportunity_name', 'account_name', 'opportunity_value', 'progress']
     success_url = reverse_lazy('opportunities-list-view')
     success_message = '%(opportunity_name)s successfully updated!'
 
