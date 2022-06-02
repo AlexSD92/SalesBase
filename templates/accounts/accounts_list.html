@@ -10,37 +10,39 @@
 
 </div>
 
-<div class=".container-fluid ml-5 mr-5">
+<div class=".container-fluid">
 
-    <a href="{% url 'create-account' %}" class="btn btn-outline-primary ml-5 mt-5">Create Account</a>
+    <a href="{% url 'create-account' %}" class="btn btn-outline-primary ml-2 mt-5">Create Account</a>
 
     <div class="row">
-        <div class="col-sm m-5">
-            <table class="table table-striped table-responsive-sm">
+        <div class="col-sm mt-5 ml-2 mr-2">
+            <table class="table table-striped table-responsive-xs">
                 <caption>List of accounts</caption>
                 <thead class="thead-dark">
                     
                     <tr>
-                        <th scope="col">#</th>
+                        <th class="listviewhide" scope="col">#</th>
                         <th scope="col">Account</th>
                         <th scope="col">Industry</th>
                         <th scope="col">Employees</th>
-                        <th scope="col">Date Created</th>
-                        <th scope="col">Last Updated</th>
-                        <th scope="col">Owner</th>
+                        <th class="listviewhide" scope="col">Date Created</th>
+                        <th class="listviewhide" scope="col">Last Updated</th>
+                        <th class="listviewhide" scope="col">Progress</th>
+                        <th class="listviewhide" scope="col">Owner</th>
                     </tr>
 
                 </thead>
                 <tbody>
                     {% for account in accountsmodel_list %}
                     <tr>
-                        <th scope="row">{{ account.pk }}</th>
+                        <th class="listviewhide" scope="row">{{ account.pk }}</th>
                         <td><a href="{% url 'accounts-detail-view' account.pk %}">{{ account.account_name }}</a></td>
                         <td>{{ account.account_ind }}</td>
                         <td>{{ account.account_size }}</td>
-                        <td>{{ account.created }}</td>
-                        <td>{{ account.updated }}</td>
-                        <td>{{ account.owner }}</td>
+                        <td class="listviewhide">{{ account.created }}</td>
+                        <td class="listviewhide">{{ account.updated }}</td>
+                        <td class="listviewhide">{{ account.progress }}</td>
+                        <td class="listviewhide">{{ account.owner }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

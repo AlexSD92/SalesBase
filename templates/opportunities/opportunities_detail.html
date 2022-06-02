@@ -4,44 +4,26 @@
 
 {% if user.is_authenticated %}
 
-<div class=".container-fluid ml-5 mr-5">
+<div class=".container-fluid ml-2 mr-2">
 
-    <a href="{% url 'create-opportunity' %}" class="btn btn-outline-primary ml-5 mt-5">Create New Opportunity</a>
-
-    <a href="{% url 'update-opportunity' object.pk %}" class="btn btn-outline-warning ml-5 mt-5">Update This Opportunity</a>
-
-    <a href="{% url 'delete-opportunity' object.pk %}" class="btn btn-outline-danger ml-5 mt-5">Delete This Opportunity</a>
+    <ul class="list-unstyled d-flex align-items-center justify-content-center">
+        <li><a href="{% url 'create-opportunity' %}" class="btn btn-outline-primary ml-2 mt-5">Create a New Opportunity</a></li>
+        <li><a href="{% url 'update-opportunity' object.pk %}" class="btn btn-outline-warning ml-2 mt-5">Update This Opportunity</a></li>
+        <li><a href="{% url 'delete-opportunity' object.pk %}" class="btn btn-outline-danger ml-2 mt-5">Delete This Opportunity</a></li>
+    </ul>  
 
     <div class="post-entry">
         <h1 class="mt-5 text-center">{{ object.opportunity_name }}</h1>
     </div>
 
     <div class="row mt-5">
-            <div class="col-4 text-break">
-        <h3>Opportunity Information</h3>
-        <ul class="list-unstyled">
+        <h3 class="col-12 text-center">Opportunity Information</h3>
+        <ul class="col-12 text-center list-unstyled">
             <li>Industry: {{ object.opportunity_name }}</li>
             <li>Employees: {{ object.opportunity_company }}</li>
             <li>Last Updated: {{ object.updated }}</li>
         </ul>
     </div>
-
-    <div class="col-4 text-break">
-        <h3>Opportunity Information</h3>
-        <ul class="list-unstyled">
-            <li>list here</li>
-        </ul>
-    </div>
-
-    <div class="col-4 text-break">
-        <h3>Opportunity Information</h3>
-        <ul class="list-unstyled">
-            <li>list here</li>
-        </ul>
-    </div>
-    </div>
-
-
 
 </div>
 

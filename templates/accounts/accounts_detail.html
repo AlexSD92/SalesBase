@@ -1,25 +1,26 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 {% if user.is_authenticated %}
 
-<div class=".container-fluid ml-5 mr-5">
+<div class=".container-fluid ml-2 mr-2">
 
-    <a href="{% url 'create-account' %}" class="btn btn-outline-primary ml-5 mt-5">Create New Account</a>
-
-    <a href="{% url 'update-account' object.pk %}" class="btn btn-outline-warning ml-5 mt-5">Update This Account</a>
-
-    <a href="{% url 'delete-account' object.pk %}" class="btn btn-outline-danger ml-5 mt-5">Delete This Account</a>
+    <ul class="list-unstyled d-flex align-items-center justify-content-center">
+        <li><a href="{% url 'create-account' %}" class="btn btn-outline-primary ml-2 mt-5">Create New Account</a></li>
+        <li><a href="{% url 'update-account' object.pk %}" class="btn btn-outline-warning ml-2 mt-5">Update This Account</a></li>
+        <li><a href="{% url 'delete-account' object.pk %}" class="btn btn-outline-danger ml-2 mt-5">Delete This Account</a></li>
+    </ul>    
 
     <div class="post-entry">
         <h1 class="mt-5 text-center">{{ object.account_name }}</h1>
     </div>
 
     <div class="row mt-5">
-            <div class="col-4 text-break">
-        <h3>Account Information</h3>
-        <ul class="list-unstyled">
+        <h3 class="col-12 text-center">Account Information</h3>
+        <ul class="col-12 text-center list-unstyled">
             <li>Industry: {{ object.account_ind }}</li>
             <li>Employees: {{ object.account_size }}</li>
             <li>Revenue: £{{ object.account_rev }}</li>
@@ -27,39 +28,8 @@
             <li>Last Updated: {{ object.updated }}</li>
         </ul>
     </div>
-
-    <div class="col-4 text-break">
-        <h3>Contact Information</h3>
-        <ul class="list-unstyled">
-            <li>Industry: {{ object.account_ind }}</li>
-            <li>Employees: {{ object.account_size }}</li>
-            <li>Revenue: £{{ object.account_rev }}</li>
-            <li>Created: {{ object.created }}</li>
-            <li>Last Updated: {{ object.updated }}</li>
-        </ul>
-    </div>
-
-    <div class="col-4 text-break">
-        <h3>Opportunity Information</h3>
-        <ul class="list-unstyled">
-            <li>Industry: {{ object.account_ind }}</li>
-            <li>Employees: {{ object.account_size }}</li>
-            <li>Revenue: £{{ object.account_rev }}</li>
-            <li>Created: {{ object.created }}</li>
-            <li>Last Updated: {{ object.updated }}</li>
-        </ul>
-    </div>
-    </div>
-
-
 
 </div>
-
-<!-- account_ind = models.TextField(max_length=50, null=True, blank=False)
-account_size = models.PositiveIntegerField(null=True, blank=False)
-account_rev = models.PositiveIntegerField(null=True, blank=False)
-created = models.DateTimeField(auto_now_add=True)
-updated = models.DateTimeField(auto_now=True) -->
 
 {% endif %}
 
