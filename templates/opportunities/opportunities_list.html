@@ -10,7 +10,7 @@
 
 </div>
 
-<div class=".container-fluid ml-5 mr-5">
+<div class=".container-fluid">
 
     <a href="{% url 'create-opportunity' %}" class="btn btn-outline-primary ml-2 mt-5">Create Opportunity</a>
 
@@ -36,8 +36,8 @@
                     {% for opportunity in opportunitiesmodel_list %}
                     <tr>
                         <th class="listviewhide" scope="row">{{ opportunity.pk }}</th>
-                        <td><a href="{% url 'opportunities-detail-view' opportunity.pk %}">{{ opportunity.opportunity_name }}</a></td>
-                        <td><a href="{% url 'accounts-detail-view' opportunity.account_name.pk %}">{{ opportunity.account_name }}</a></td>
+                        <td><a href="{{ opportunity.get_absolute_url }}">{{ opportunity.opportunity_name }}</a></td>
+                        <td><a href="{{ opportunity.account_name.get_absolute_url }}">{{ opportunity.account_name }}</a></td>
                         <td>{{ opportunity.opportunity_value }}</td>
                         <td class="listviewhide">{{ opportunity.created }}</td>
                         <td class="listviewhide">{{ opportunity.updated }}</td>

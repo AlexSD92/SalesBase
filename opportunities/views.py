@@ -16,6 +16,7 @@ class OpportunitiesListView(ListView):
 class OpportunitiesDetailView(DetailView):
     model = OpportunitiesModel
     template_name='opportunities/opportunities_detail.html'
+    query_pk_and_slug: True
 
     def get_queryset(self):
         return OpportunitiesModel.objects.filter(owner = self.request.user)

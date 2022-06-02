@@ -10,7 +10,7 @@
 
 </div>
 
-<div class=".container-fluid ml-5 mr-5">
+<div class=".container-fluid">
 
     <a href="{% url 'create-contact' %}" class="btn btn-outline-primary ml-2 mt-5">Create Contact</a>
 
@@ -37,10 +37,10 @@
                     {% for contact in contactsmodel_list %}
                     <tr>
                         <th class="listviewhide" scope="row">{{ contact.pk }}</th>
-                        <td><a href="{% url 'contacts-detail-view' contact.pk %}">{{ contact.contact_name }}</a></td>
-                        <td><a href="{% url 'accounts-detail-view' contact.contact_company.pk %}">{{ contact.contact_company }}</a></td>
+                        <td><a href="{{ contact.get_absolute_url }}">{{ contact.contact_name }}</a></td>
+                        <<td><a href="{{ contact.contact_company.get_absolute_url }}">{{ contact.contact_company }}</a></td>
                         <td class="listviewhide">{{ contact.contact_role }}</td>
-                        <td><a href="{% url 'opportunities-detail-view' contact.contact_opp.pk %}">{{ contact.contact_opp.pk }}</a></td> 
+                        <td><a href="{{ contact.contact_opp.get_absolute_url }}">{{ contact.contact_opp }}</a></td>
                         <td class="listviewhide">{{ contact.created }}</td>
                         <td class="listviewhide">{{ contact.updated }}</td>
                         <td class="listviewhide">{{ contact.progress }}</td>

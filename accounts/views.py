@@ -18,6 +18,7 @@ class AccountsListView(ListView):
 class AccountsDetailView(DetailView):
     model = AccountsModel
     template_name='accounts/accounts_detail.html'
+    query_pk_and_slug: True
 
     def get_context_data(self, **kwargs):
         context = super(AccountsDetailView, self).get_context_data(**kwargs)

@@ -36,7 +36,7 @@
                     {% for account in accountsmodel_list %}
                     <tr>
                         <th class="listviewhide" scope="row">{{ account.pk }}</th>
-                        <td><a href="{% url 'accounts-detail-view' account.pk %}">{{ account.account_name }}</a></td>
+                        <td><a href="{{ account.get_absolute_url }}">{{ account.account_name }}</a></td>
                         <td>{{ account.account_ind }}</td>
                         <td>{{ account.account_size }}</td>
                         <td class="listviewhide">{{ account.created }}</td>

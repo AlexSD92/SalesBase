@@ -21,7 +21,7 @@ from .views import OpportunitiesListView, OpportunitiesDetailView, CreateOpportu
 
 urlpatterns = [
     path('', login_required(OpportunitiesListView.as_view()), name='opportunities-list-view'),
-    path('<int:pk>/', login_required(OpportunitiesDetailView.as_view()), name='opportunities-detail-view'),
+    path('<int:pk>-<str:slug>', login_required(OpportunitiesDetailView.as_view()), name='opportunities-detail-view'),
     path('create/', login_required(CreateOpportunitiesView.as_view()), name='create-opportunity'),
     path('<int:pk>/update/', login_required(UpdateOpportunitiesView.as_view()), name='update-opportunity'),
     path('<int:pk>/delete/', login_required(DeleteOpportunitiesView.as_view()), name='delete-opportunity'),

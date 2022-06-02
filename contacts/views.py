@@ -16,6 +16,7 @@ class ContactsListView(ListView):
 class ContactsDetailView(DetailView):
     model = ContactsModel
     template_name='contacts/contacts_detail.html'
+    query_pk_and_slug: True
 
     def get_queryset(self):
         return ContactsModel.objects.filter(owner = self.request.user)

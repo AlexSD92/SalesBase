@@ -21,7 +21,7 @@ from .views import ContactsListView, ContactsDetailView, CreateContactsView, Upd
 
 urlpatterns = [
     path('', login_required(ContactsListView.as_view()), name='contacts-list-view'),
-    path('<int:pk>/', login_required(ContactsDetailView.as_view()), name='contacts-detail-view'),
+    path('<int:pk>-<str:slug>', login_required(ContactsDetailView.as_view()), name='contacts-detail-view'),
     path('create/', login_required(CreateContactsView.as_view()), name='create-contact'),
     path('<int:pk>/update/', login_required(UpdateContactsView.as_view()), name='update-contact'),
     path('<int:pk>/delete/', login_required(DeleteContactsView.as_view()), name='delete-contact'),
