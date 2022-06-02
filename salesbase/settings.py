@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloudinary',
+    'djmoney',
 ]
 
 # AUTH_USER_MODEL = 'users.CustomUserModel'
