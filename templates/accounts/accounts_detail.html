@@ -6,6 +6,22 @@
 
 {% if user.is_authenticated %}
 
+<ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"><a class="text-muted text-decoration-none" href="{% url 'dashboard' %}">Dashboard</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a class="text-muted text-decoration-none" href="{% url 'account-list-view' %}">Accounts</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a class="text-decoration-none" href="#">{{ object.account_name }}</a></li>
+</ol> 
+
+{% if messages %}
+
+<ul class="messages list-unstyled p-5 rounded">
+    {% for message in messages %}
+        <li {% if message.tags %} class="alert alert-{{ message.tags }} text-center" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
 <div class=".container-fluid ml-2 mr-2">
 
     <ul class="list-unstyled d-flex align-items-center justify-content-center">

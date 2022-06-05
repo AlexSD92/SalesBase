@@ -4,6 +4,22 @@
 
 {% load crispy_forms_tags %}
 
+<ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"><a class="text-muted text-decoration-none" href="{% url 'dashboard' %}">Dashboard</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a class="text-muted text-decoration-none" href="{% url 'contacts-list-view' %}">Contacts</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a class="text-decoration-none" href="#">Update {{ object.contact_name }}</a></li>
+</ol> 
+
+{% if messages %}
+
+<ul class="messages list-unstyled p-5 rounded">
+    {% for message in messages %}
+        <li {% if message.tags %} class="alert alert-{{ message.tags }} text-center" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
 <div class="bg-dark min-vh-100 d-flex align-items-center justify-content-center">
     
     <form class="p-5 bg-light rounded form-signin col-8 align-self-center" action="" method="POST">

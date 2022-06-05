@@ -4,6 +4,22 @@
 
 {% load crispy_forms_tags %}
 
+<ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"><a class="text-muted text-decoration-none" href="{% url 'dashboard' %}">Dashboard</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a class="text-muted text-decoration-none" href="{% url 'opportunities-list-view' %}">Opportunities</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a class="text-decoration-none" href="#">Delete {{ object.opportunity_name }}</a></li>
+</ol> 
+
+{% if messages %}
+
+<ul class="messages list-unstyled p-5 rounded">
+    {% for message in messages %}
+        <li {% if message.tags %} class="alert alert-{{ message.tags }} text-center" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
 <div class="bg-dark min-vh-100 d-flex align-items-center justify-content-center">
     
     <form class="p-5 bg-light rounded form-signin col-8 align-self-center" action="" method="POST">
@@ -13,7 +29,7 @@
         {% csrf_token %}
         {{ form|crispy }}
         <button class="btn btn-primary" type="submit" value="Save">Yes, Delete The Opportunity</button>
-        <a href="{% url 'opportunities-detail-view' object.pk %}" class="btn btn-outline-primary ml-5">No, Take Me Back!</a>
+        <a href="{{ object.get_absolute_url }}" class="btn btn-outline-primary ml-5">No, Take Me Back!</a>
 
     </form>
 

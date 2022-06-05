@@ -11,6 +11,20 @@
 
 {% if user.is_authenticated %}
 
+<ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"><a class="text-decoration-none" href="{% url 'dashboard' %}">Profile</a></li>
+</ol> 
+
+{% if messages %}
+
+<ul class="messages list-unstyled p-5 rounded">
+    {% for message in messages %}
+        <li {% if message.tags %} class="alert alert-{{ message.tags }} text-center" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
 <div class="container mt-5">
 
     <h1 class="text-center">Hi {{ user.username }}, welcome to your profile.</h1>
@@ -19,9 +33,7 @@
         <img src="https://res.cloudinary.com/alexsd92/image/upload/v1652005948/media/static/default.jpg" alt="" class="rounded-circle account-img">
     {% else %}
         <!-- <img src="{{ user.profile.image.url }}" alt="" class="rounded-circle account-img"> -->
-        <div class="rounded-circle">{% cloudinary user.profile.image height=200 width=200 format="jpg" crop="thumb" radius="max" background="#F8F9FA" %}</div>
-
-        
+        <div class="rounded-circle">{% cloudinary user.profile.image height=200 width=200 format="jpg" crop="thumb" radius="max" background="#F8F9FA" %}</div>        
     {% endif %}
 
     <div class="w-25 h-25 bg-dark"></div>
@@ -32,13 +44,13 @@
     
     <form class="p-5 bg-light rounded form-signin col-6 align-self-center" action="" method="POST" enctype="multipart/form-data">
 
-        <h1 class="mb-5">Register for an account.</h1>
+        <h1 class="mb-5">Update your profile.</h1>
 
         {% csrf_token %}
         {{ p_form|crispy }}
         {{ u_form|crispy }}
 
-        <button class="btn btn-primary" type="submit">Register</button>
+        <button class="btn btn-primary" type="submit">Update!</button>
 
         <p class="mt-5">Already have an account? <a href="{% url 'login' %}">Get logged in!</a></p>
 

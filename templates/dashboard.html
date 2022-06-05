@@ -4,11 +4,25 @@
 
 {% if user.is_authenticated %}
 
+<ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+</ol> 
+
 <div class="container mt-5">
 
     <h1 class="text-center">Hi {{ user.username }}</h1>
 
 </div>
+
+{% if messages %}
+
+<ul class="messages list-unstyled p-5 rounded">
+    {% for message in messages %}
+        <li {% if message.tags %} class="alert alert-{{ message.tags }} text-center" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
 
 <div class="container-fluid">
     <div class="row mt-5">
