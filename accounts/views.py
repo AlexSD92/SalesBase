@@ -10,6 +10,7 @@ from opportunities.models import OpportunitiesModel
 class AccountsListView(ListView):
     model = AccountsModel
     template_name='accounts/accounts_list.html'
+    paginate_by = 5
 
     def get_queryset(self):
         return AccountsModel.objects.filter(owner = self.request.user)

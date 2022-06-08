@@ -8,6 +8,7 @@ from .models import OpportunitiesModel
 class OpportunitiesListView(ListView):
     model = OpportunitiesModel
     template_name='opportunities/opportunities_list.html'
+    paginate_by = 5
 
     def get_queryset(self):
         return OpportunitiesModel.objects.filter(owner = self.request.user)

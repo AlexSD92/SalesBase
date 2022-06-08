@@ -8,6 +8,7 @@ from .models import ContactsModel
 class ContactsListView(ListView):
     model = ContactsModel
     template_name='contacts/contacts_list.html'
+    paginate_by = 5
 
     def get_queryset(self):
         return ContactsModel.objects.filter(owner = self.request.user)
