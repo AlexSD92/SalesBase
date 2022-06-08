@@ -53,7 +53,7 @@
                     <tr>
                         <th class="listviewhide" scope="row">{{ contact.pk }}</th>
                         <td><a href="{{ contact.get_absolute_url }}">{{ contact.contact_name }}</a></td>
-                        <<td><a href="{{ contact.contact_company.get_absolute_url }}">{{ contact.contact_company }}</a></td>
+                        <td><a href="{{ contact.contact_company.get_absolute_url }}">{{ contact.contact_company }}</a></td>
                         <td class="listviewhide">{{ contact.contact_role }}</td>
                         <td><a href="{{ contact.contact_opp.get_absolute_url }}">{{ contact.contact_opp }}</a></td>
                         <td class="listviewhide">{{ contact.created }}</td>
@@ -62,6 +62,24 @@
                         <td class="listviewhide">{{ contact.owner }}</td>
                     </tr>
                     {% endfor %}
+
+                    {% if page_obj.has_previous %}
+                        <a class="btn btn-sm btn-outline-secondary mb-1" href="?page=1">First</a>
+                        <a class="btn btn-sm btn-outline-secondary mb-1" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    {% endif %}
+
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                            <a class="btn btn-sm btn-secondary mb-1" href="?page={{ num }}">{{ num }}</a>  
+                        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                            <a class="btn btn-sm btn-outline-secondary mb-1" href="?page={{ num }}">{{ num }}</a>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                        <a class="btn btn-sm btn-outline-secondary mb-1" href="?page={{ page_obj.next_page_number }}">Next</a>
+                        <a class="btn btn-sm btn-outline-secondary mb-1" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                    {% endif %}
                 </tbody>
             </table>
         </div>
