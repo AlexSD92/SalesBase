@@ -15,7 +15,7 @@ class OpportunitiesModel(models.Model):
     updated = models.DateTimeField(auto_now=True, verbose_name='Last Updated')
     owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Owner')
     progress = models.CharField(max_length=2, choices=OPP_STATUS_CHOICES, default=OPP_STATUS_CHOICES[0], verbose_name='Status')
-    slug = models.SlugField(default='', editable=False)
+    slug = models.SlugField(max_length=255, default='', editable=False)
 
     def __str__(self):
         return self.opportunity_name
