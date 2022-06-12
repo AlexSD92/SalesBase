@@ -6,13 +6,13 @@ from django.utils.text import slugify
 
 
 class AccountsModel(models.Model):
-    account_name = models.CharField(max_length=50, null=True, blank=False, unique=True, verbose_name='Account Name')
-    account_ind = models.CharField(max_length=3, choices=INDUSTRY_CHOICES, null=True, blank=False, verbose_name='Account Industry')
-    account_size = models.PositiveIntegerField(null=True, blank=False, verbose_name='# of Employees')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='Created On')
-    updated = models.DateTimeField(auto_now=True, verbose_name='Last Updated')
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Owner')
-    progress = models.CharField(max_length=2, choices=ACC_CON_STATUS_CHOICES, default=ACC_CON_STATUS_CHOICES[0], verbose_name='Status')
+    account_name = models.CharField(max_length=100, null=True, blank=False, unique=True, verbose_name='Account Name')
+    account_ind = models.CharField(max_length=100, choices=INDUSTRY_CHOICES, null=True, blank=False, verbose_name='Account Industry')
+    account_size = models.PositiveIntegerField(max_length=100, null=True, blank=False, verbose_name='# of Employees')
+    created = models.DateTimeField(max_length=100, auto_now_add=True, verbose_name='Created On')
+    updated = models.DateTimeField(max_length=100, auto_now=True, verbose_name='Last Updated')
+    owner = models.ForeignKey(User, max_length=100, on_delete=models.CASCADE, verbose_name='Owner')
+    progress = models.CharField(max_length=100, choices=ACC_CON_STATUS_CHOICES, default=ACC_CON_STATUS_CHOICES[0], verbose_name='Status')
     slug = models.SlugField(max_length=255, default='', editable=False)
     
 
