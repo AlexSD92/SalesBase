@@ -9,9 +9,9 @@ from django.utils.text import slugify
 
 class ContactsModel(models.Model):
     contact_name = models.CharField(max_length=50, null=True, blank=False, verbose_name='Contact Name')
-    contact_company = models.ForeignKey(AccountsModel, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Contact Company')
+    contact_company = models.ForeignKey(AccountsModel, max_length=50, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Contact Company')
     contact_role = models.CharField(max_length=50, null=True, blank=False, verbose_name='Contact Role')
-    contact_opp = models.ForeignKey(OpportunitiesModel, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Contact Opportunity')
+    contact_opp = models.ForeignKey(OpportunitiesModel, max_length=50, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Contact Opportunity')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Date Created')
     updated = models.DateTimeField(auto_now=True, verbose_name='Last Updated')
     owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Owner')
