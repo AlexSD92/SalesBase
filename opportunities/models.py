@@ -8,13 +8,13 @@ from djmoney.models.fields import MoneyField
 
 
 class OpportunitiesModel(models.Model):
-    opportunity_name = models.CharField(max_length=50, null=True, blank=False, verbose_name='Opportunity Name')
+    opportunity_name = models.CharField(max_length=100, null=True, blank=False, verbose_name='Opportunity Name')
     account_name = models.ForeignKey(AccountsModel, on_delete=models.CASCADE, verbose_name='Opportunity Account')
     opportunity_value = MoneyField(max_digits=20, decimal_places=2, null=True, blank=False, default_currency='GBP', verbose_name='Opportunity Value')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Date Created')
     updated = models.DateTimeField(auto_now=True, verbose_name='Last Updated')
     owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Owner')
-    progress = models.CharField(max_length=2, choices=OPP_STATUS_CHOICES, default=OPP_STATUS_CHOICES[0], verbose_name='Status')
+    progress = models.CharField(max_length=100, choices=OPP_STATUS_CHOICES, default=OPP_STATUS_CHOICES[0], verbose_name='Status')
     slug = models.SlugField(max_length=255, default='', editable=False)
 
     def __str__(self):

@@ -8,14 +8,14 @@ from django.utils.text import slugify
 
 
 class ContactsModel(models.Model):
-    contact_name = models.CharField(max_length=50, null=True, blank=False, verbose_name='Contact Name')
+    contact_name = models.CharField(max_length=100, null=True, blank=False, verbose_name='Contact Name')
     contact_company = models.ForeignKey(AccountsModel, max_length=50, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Contact Company')
-    contact_role = models.CharField(max_length=50, null=True, blank=False, verbose_name='Contact Role')
+    contact_role = models.CharField(max_length=100, null=True, blank=False, verbose_name='Contact Role')
     contact_opp = models.ForeignKey(OpportunitiesModel, max_length=50, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Contact Opportunity')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Date Created')
     updated = models.DateTimeField(auto_now=True, verbose_name='Last Updated')
     owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Owner')
-    progress = models.CharField(max_length=2, choices=ACC_CON_STATUS_CHOICES, default=ACC_CON_STATUS_CHOICES[0], verbose_name='Status')
+    progress = models.CharField(max_length=100, choices=ACC_CON_STATUS_CHOICES, default=ACC_CON_STATUS_CHOICES[0], verbose_name='Status')
     slug = models.SlugField(max_length=255, default='', editable=False)
 
     def __str__(self):
