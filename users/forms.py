@@ -8,7 +8,11 @@ class CreateNewUser(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'password1', 'password2']
+
+    def __init__ (self, *args, **kwargs):
+        super(CreateNewUser, self).__init__(*args, **kwargs)
+        del self.fields ['email']
 
 
 class UpdateExistingUser(forms.ModelForm):
@@ -16,7 +20,11 @@ class UpdateExistingUser(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['username']
+
+    def __init__ (self, *args, **kwargs):
+        super(UpdateExistingUser, self).__init__(*args, **kwargs)
+        del self.fields ['email']
 
 
 class UpdateProfile(forms.ModelForm):
