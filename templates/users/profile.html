@@ -11,7 +11,7 @@
 
 {% if user.is_authenticated %}
 
-<ol class="breadcrumb">
+<ol class="breadcrumb mb-0">
     <li class="breadcrumb-item" aria-current="page"><a class="text-decoration-none" href="{% url 'profile' %}">Profile</a></li>
 </ol> 
 
@@ -25,34 +25,27 @@
 
 {% endif %}
 
-<div class="container mt-5">
-
-    <h1 class="text-center">Hi {{ user.username }}, welcome to your profile.</h1>
-
-    {% if "placeholder" in user.profile.image.url %}
-        <img src="https://res.cloudinary.com/alexsd92/image/upload/v1652005948/media/static/default.jpg" alt="" class="rounded-circle account-img">
-    {% else %}
-        <!-- <img src="{{ user.profile.image.url }}" alt="" class="rounded-circle account-img"> -->
-        <div class="rounded-circle">{% cloudinary user.profile.image height=200 width=200 format="jpg" crop="thumb" radius="max" background="#F8F9FA" %}</div>        
-    {% endif %}
-
-    <div class="w-25 h-25 bg-dark"></div>
-
-</div>
-
 <div class="bg-dark min-vh-100 d-flex align-items-center justify-content-center">
     
-    <form class="p-5 bg-light rounded form-signin col-6 align-self-center" action="" method="POST" enctype="multipart/form-data">
+    <form class="p-5 bg-light rounded form-signin col-8 align-self-center mt-5 mb-5" action="" method="POST" enctype="multipart/form-data">
+        <h4 class="mb-5 text-center">Hi {{ user.username }}, would you like to update your profile?</h4>
 
-        <h1 class="mb-5">Update your profile.</h1>
+        {% if "placeholder" in user.profile.image.url %}
+            <div class="rounded-circle account-img d-flex justify-content-center mb-5">
+                <img src="https://res.cloudinary.com/alexsd92/image/upload/v1652005948/media/static/default.jpg" alt="" style="height: 200px; width: 200px" class="rounded-circle account-img height:">
+            </div>
+        {% else %}
+            <div class="rounded-circle account-img d-flex justify-content-center mb-5">{% cloudinary user.profile.image height=200 width=200 format="jpg" crop="thumb" radius="max" background="#F8F9FA" %}</div>        
+        {% endif %}
 
         {% csrf_token %}
         {{ p_form|crispy }}
         {{ u_form|crispy }}
 
-        <button class="btn btn-primary" type="submit">Update!</button>
+        <div class="col text-center">
+            <button class="btn btn-primary" type="submit">Update!</button>
+        </div>
 
-        <p class="mt-5">Already have an account? <a href="{% url 'login' %}">Get logged in!</a></p>
 
     </form>
 
