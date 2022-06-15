@@ -32,3 +32,6 @@ urlpatterns = [
     path('contacts/', include('contacts.urls'), name='contacts'),
     path('opportunities/', include('opportunities.urls'), name='opportunities'),
 ]
+
+admin.site.site_header = 'SalesBase Administration'
+admin.site.site_title = 'SalesBase Administration'
