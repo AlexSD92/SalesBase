@@ -44,7 +44,7 @@ class DashboardListView(ListView):
 class CreateAccountsView(SuccessMessageMixin, CreateView):
     model = AccountsModel
     template_name = 'accounts/accounts_create.html'
-    fields = ['account_name', 'account_ind', 'account_size']
+    fields = ['account_name', 'account_size']
     success_url = reverse_lazy('account-list-view')
     success_message = 'Account for %(account_name)s successfully created!'
 
@@ -56,7 +56,7 @@ class CreateAccountsView(SuccessMessageMixin, CreateView):
 class UpdateAccountsView(SuccessMessageMixin, UpdateView):
     model = AccountsModel
     template_name = 'accounts/accounts_update.html'
-    fields = ['account_name', 'account_ind', 'account_size', 'progress']
+    fields = ['account_name', 'account_size']
     success_url = reverse_lazy('account-list-view')
     success_message = '%(account_name)s successfully updated!'
 

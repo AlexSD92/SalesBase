@@ -26,7 +26,7 @@ class ContactsDetailView(DetailView):
 class CreateContactsView(SuccessMessageMixin, CreateView):
     model = ContactsModel
     template_name = 'contacts/contacts_create.html'
-    fields = ['contact_name', 'contact_company', 'contact_role', 'contact_opp']
+    fields = ['contact_name', 'contact_role']
     success_url = reverse_lazy('contacts-list-view')
     success_message = 'Contact, %(contact_name)s, successfully created!'
 
@@ -38,7 +38,7 @@ class CreateContactsView(SuccessMessageMixin, CreateView):
 class UpdateContactsView(SuccessMessageMixin, UpdateView):
     model = ContactsModel
     template_name = 'contacts/contacts_update.html'
-    fields = ['contact_name', 'contact_company', 'contact_role', 'contact_opp', 'progress']
+    fields = ['contact_name', 'contact_role']
     success_url = reverse_lazy('contacts-list-view')
     success_message = '%(contact_name)s successfully updated!'
 

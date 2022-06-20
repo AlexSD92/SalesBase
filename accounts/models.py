@@ -1,20 +1,16 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-from salesbase.list_data import ACC_CON_STATUS_CHOICES, INDUSTRY_CHOICES
 from django.utils.text import slugify
 
 
 class AccountsModel(models.Model):
     account_name = models.CharField(max_length=100, null=True, blank=False, unique=True, verbose_name='Account Name')
-    account_ind = models.CharField(max_length=100, choices=INDUSTRY_CHOICES, null=True, blank=False, verbose_name='Account Industry')
     account_size = models.PositiveIntegerField(null=True, blank=False, verbose_name='# of Employees')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Created On')
     updated = models.DateTimeField(auto_now=True, verbose_name='Last Updated')
     owner = models.ForeignKey(User, max_length=100, on_delete=models.CASCADE, verbose_name='Owner')
-    progress = models.CharField(max_length=100, choices=ACC_CON_STATUS_CHOICES, default=ACC_CON_STATUS_CHOICES[0], verbose_name='Status')
-    slug = models.SlugField(max_length=255, default='', editable=False)
-    
+    slug = models.SlugField(max_length=255, default='', editable=False)    
 
     def __str__(self):
         return self.account_name
