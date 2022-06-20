@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Charis+SIL&family=Ubuntu:wght@300&display=swap');
 
-/* font-family: 'Alfa Slab One', cursive;
-font-family: 'Charis SIL', serif;
-font-family: 'Ubuntu', sans-serif; */
-
 body{
     overflow-x: hidden;
     font-family: 'Ubuntu', sans-serif;
@@ -12,21 +8,6 @@ body{
 
 input, select, span{
     font-size: .75rem !important;
-}
-
-#div_id_image{
-    text-align: center;
-    color: green;
-    width: 160px;
-    margin: 20px auto 20px auto;
-    overflow: visible;
-}
-
-#div_id_username{
-    text-align: center;
-    color: green;
-    width: 160px;
-    margin: auto auto 20px auto;
 }
 
 #logo{
