@@ -40,11 +40,9 @@
                     <tr>
                         <th class="listviewhide" scope="col">#</th>
                         <th scope="col">Account</th>
-                        <th scope="col">Industry</th>
                         <th scope="col">Employees</th>
                         <th class="listviewhide" scope="col">Date Created</th>
                         <th class="listviewhide" scope="col">Last Updated</th>
-                        <th class="listviewhide" scope="col">Progress</th>
                         <th class="listviewhide" scope="col">Owner</th>
                     </tr>
 
@@ -54,11 +52,9 @@
                     <tr>
                         <th class="listviewhide" scope="row">{{ account.pk }}</th>
                         <td><a href="{{ account.get_absolute_url }}">{{ account.account_name }}</a></td>
-                        <td>{{ account.account_ind }}</td>
                         <td>{{ account.account_size }}</td>
                         <td class="listviewhide">{{ account.created }}</td>
                         <td class="listviewhide">{{ account.updated }}</td>
-                        <td class="listviewhide">{{ account.progress }}</td>
                         <td class="listviewhide">{{ account.owner }}</td>
                     </tr>
                     {% endfor %}

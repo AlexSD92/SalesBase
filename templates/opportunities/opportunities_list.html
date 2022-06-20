@@ -38,11 +38,9 @@
                     <tr>
                         <th class="listviewhide" scope="col">#</th>
                         <th scope="col">Opportunity</th> 
-                        <th scope="col">Account</th>
                         <th scope="col">Value</th>
                         <th class="listviewhide" scope="col">Created</th>
                         <th class="listviewhide" scope="col">Last Updated</th>
-                        <th class="listviewhide" scope="col">Progress</th>
                         <th class="listviewhide" scope="col">Owner</th>
                     </tr>
 
@@ -52,11 +50,9 @@
                     <tr>
                         <th class="listviewhide" scope="row">{{ opportunity.pk }}</th>
                         <td><a href="{{ opportunity.get_absolute_url }}">{{ opportunity.opportunity_name }}</a></td>
-                        <td><a href="{{ opportunity.account_name.get_absolute_url }}">{{ opportunity.account_name }}</a></td>
                         <td>{{ opportunity.opportunity_value }}</td>
                         <td class="listviewhide">{{ opportunity.created }}</td>
                         <td class="listviewhide">{{ opportunity.updated }}</td>
-                        <td class="listviewhide">{{ opportunity.progress }}</td>
                         <td class="listviewhide">{{ opportunity.owner }}</td>
                     </tr>
                     {% endfor %}
