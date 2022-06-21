@@ -6,9 +6,6 @@
 
 {% load cloudinary %}      
 
-<!-- {% cloudinary user.profile.image format="jpg" width=120 height=80 crop="fill" %} -->
-<!-- https://cloudinary.com/documentation/django_image_and_video_upload#django_forms_and_models -->
-
 {% if user.is_authenticated %}
 
 <ol class="breadcrumb mb-0">
@@ -32,7 +29,7 @@
 
         {% if "placeholder" in user.profile.image.url %}
             <div class="rounded-circle account-img d-flex justify-content-center mb-5">
-                <img src="https://res.cloudinary.com/alexsd92/image/upload/v1652005948/media/static/default.jpg" alt="" style="height: 200px; width: 200px" class="rounded-circle account-img height:">
+                <img src="https://res.cloudinary.com/alexsd92/image/upload/v1655839063/media/static/default.jpg" alt="" style="height: 200px; width: 200px" class="rounded-circle account-img height:">
             </div>
         {% else %}
             <div class="rounded-circle account-img d-flex justify-content-center mb-5">{% cloudinary user.profile.image height=200 width=200 format="jpg" crop="thumb" radius="max" background="#F8F9FA" %}</div>        
