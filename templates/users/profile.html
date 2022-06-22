@@ -24,12 +24,12 @@
 
 <div class="bg-dark min-vh-100 d-flex align-items-center justify-content-center">
     
-    <form class="p-5 bg-light rounded form-signin col-8 align-self-center mt-5 mb-5" action="" method="POST" enctype="multipart/form-data">
+    <form class="p-5 bg-light rounded form-signin col-8 align-self-center mt-5 mb-5" method="POST" enctype="multipart/form-data">
         <h4 class="mb-5 text-center">Hi {{ user.username }}, would you like to update your profile?</h4>
 
         {% if "placeholder" in user.profile.image.url %}
             <div class="rounded-circle account-img d-flex justify-content-center mb-5">
-                <img src="https://res.cloudinary.com/alexsd92/image/upload/v1655839063/media/static/default.jpg" alt="" style="height: 200px; width: 200px" class="rounded-circle account-img height:">
+                <img src="https://res.cloudinary.com/alexsd92/image/upload/v1655839063/media/static/default.jpg" alt="Placeholder image" style="height: 200px; width: 200px" class="rounded-circle account-img height:">
             </div>
         {% else %}
             <div class="rounded-circle account-img d-flex justify-content-center mb-5">{% cloudinary user.profile.image height=200 width=200 format="jpg" crop="thumb" radius="max" background="#F8F9FA" %}</div>        
