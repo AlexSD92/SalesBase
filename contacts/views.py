@@ -11,7 +11,7 @@ class ContactsListView(ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        return ContactsModel.objects.filter(owner = self.request.user)
+        return ContactsModel.objects.filter(owner = self.request.user).order_by('id')
         
 
 class ContactsDetailView(DetailView):

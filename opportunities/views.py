@@ -11,7 +11,7 @@ class OpportunitiesListView(ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        return OpportunitiesModel.objects.filter(owner = self.request.user)
+        return OpportunitiesModel.objects.filter(owner = self.request.user).order_by('id')
         
 
 class OpportunitiesDetailView(DetailView):

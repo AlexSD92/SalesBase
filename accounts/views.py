@@ -13,7 +13,7 @@ class AccountsListView(ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        return AccountsModel.objects.filter(owner = self.request.user)
+        return AccountsModel.objects.filter(owner = self.request.user).order_by('id')
         
 
 class AccountsDetailView(DetailView):
