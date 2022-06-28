@@ -15,6 +15,7 @@
     2. [User Stories](#user-stories)
     3. [Strategy](#strategy)
     4. [Scope](#scope)
+    5. [Skeleton](#skeleton)
 3. [Features](#features)
     1. [Current Features](#current-features)
     2. [Future Features](#future-features)
@@ -23,14 +24,12 @@
     2. [Other Technologies, Frameworks and Libraries](#other-technologies-frameworks-and-libraries)
 5. [Testing and Development](#testing-and-development)
     1. [Sprints](#sprints)
-    2. [Code Tests](#code-tests)
-    3. [User Tests](#user-tests)
-    4. [Bugs and Fixes](#bugs-and-fixes)
+    2. [Manual Testing](#manual-testing)
+    3. [Automated Testing](#automated-testing)
 6. [Deployment](#deployment)
-    1. [GitHub Pages](#github-pages)
-    2. [Cloning and Forking the GitHub Repository](#cloning-and-forking-the-github-repository)
-    3. [Local Deployment](#local-deployment)
-    4. [Remote Deployment](#remote-deployment)
+    1. [Cloning and Forking the GitHub Repository](#cloning-and-forking-the-github-repository)
+    2. [Local Deployment](#local-deployment)
+    3. [Remote Deployment](#remote-deployment)
 7. [Credits](#credits)
 
 
@@ -39,9 +38,9 @@
 ## Target Audience
 
 **Sales Professionals** are the target audience for SalesBase.
-- *Sales Executives* will be able to use SalesBase while they are hunting for new business. They will be able to add on new contacts, accounts and opportunities. 
-- *Account Managers* will be able to use SalesBase while they are managing existing business. They will be able to update and manage existing contacts, accounts and opportunities.
-- *Sales Managers* and beyond will be able to use SalesBase to manage and oversee a sales team and all of their contacts, accounts and opportunities to drive growth and sales. 
+- Hunting for new business - create new contacts, accounts and opportunities.
+- Manage existing business - update and manage existing contacts, accounts and opportunities. 
+- Administrators - manage and oversee a sales team and all their contacts, accounts and opportunities. 
 
 ## User Stories
 
@@ -93,35 +92,29 @@
 16. User Story: Edit Existing Contacts
     - As a **Sales Person** I can **edit my existing contacts** so that **I can keep my contacts up to date and manage my contacts**.
 
-17. User Story: Relate Accounts, Contacts and Opportunities
-    - As a **Sales Person** I can **associate accounts, contacts and opportunities** so that **I can effectively manage my data, information and pipeline**.
-
-18. User Story: Delete Accounts, Contacts and Opportunities
-    - As an **Admin** I can **delete accounts, contacts and opportunities** so that **remove unnecessary or out of date data**.
-
-19. User Story: Create Accounts, Contacts and Opportunities
-    - As an **Admin** I can **create accounts, contacts and opportunities** so that **I can behave like a salesperson**.
-
-20. User Story: Manage Users and Rights
+17. User Story: Manage Users and Rights
     - As an **Admin** I can **fully manage users on the platform and their rights** so that **manage what my team are capable of doing with the data**.
 
-21. User Story: Sales Overview
+18. User Story: Sales Overview
     - As an **Admin** I can **see every action by every user** so that **see and understand the behaviour of my team**.
 
-22. User Story: User Profiles
+19. User Story: User Profiles
     - As a **Sales Person**, I can **edit the profile that gets created when I register for an account** so that **I may update information about myself, such as my position within the organisation, my expertise, and a profile picture**.
 
-23. User Story: Log Out
+20. User Story: Log Out
     - As a **Sales Person**, I can **log out of my account** so that **I can protect my data once I am finished working**.
 
-24. User Story: Delete Existing Accounts
+21. User Story: Delete Existing Accounts
     - As an **Sales Person** I can **delete my accounts** so that **I can manage duplicate accounts**.
 
-25. User Story: Delete Existing Contacts
+22. User Story: Delete Existing Contacts
     - As an **Sales Person** I can **delete my contacts** so that **I can manage duplicate contacts**.
 
-26. User Story: Delete Existing Opportunities
+23. User Story: Delete Existing Opportunities
     - As an **Sales Person** I can **delete my opportunities** so that **I can manage duplicate opportunities**.
+
+24. User Story: Register For Account
+    - As a **User** I can **register for an account**, so that **I may use the platform**.
 
 
 ## Strategy
@@ -135,40 +128,98 @@ Design a straight-forward CRM that is intuitive to use and has a small learning 
 - Delete existing accounts, users and opportunities. 
 - Manage a user profile.
 
+## Skeleton
+
+Desktop wireframes for the project can be found [here](assets\wireframes\desktop_wireframes.pdf).
+
+Mobile wireframes for the project can be found [here](assets\wireframes\mobile_wireframes.pdf)
+
+# Features
+
+## Current Features
+
+- User registration system
+- User activation system
+- Log in method
+- Log out method
+- C.R.U.D. accounts, opportunities and contacts
+- Access a profile and update profile details, including image
+
+## Future Features
+
+- Reset password
+- Additional authentication, such as email authentication, 2FA, etc.
+- Relate accounts, users and opportunities
+    - For example, when you view an account detail view, you would be able to see associated opportunities and contacts
+- View pipeline totals, such as total potential revenue, total opportunities
+- Account, users and opportunity statuses
+- Messaging and commenting feature
+- Filtering objects by status
+- Clear rights, such as manager vs user
+
+# Technologies
+
+## Languages
+
+- [Python](https://www.python.org/)
+- [HTML](https://www.w3schools.com/html/)
+- [CSS](https://www.w3schools.com/css/)
+- [SQL](https://www.w3schools.com/sql/)
+
+## Other Technologies, Frameworks and Libraries
+
+- [Django](https://www.djangoproject.com/)
+- [Heroku](https://id.heroku.com/)
+- [Heroku Postgres](https://www.heroku.com/postgres)
+- [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
+- [Cloudinary](https://cloudinary.com/)
+- [Django Money](https://pypi.org/project/django-money/)
+- [Flask](https://flask.palletsprojects.com/en/2.1.x/)
+- [Gunicorn](https://gunicorn.org/)
+- [Jinja2](https://palletsprojects.com/p/jinja/)
+- [Pillow](https://pypi.org/project/Pillow/2.2.1/)
+- [Psycopg2-Binary](https://pypi.org/project/psycopg2-binary/)
+- [Whitenoise](http://whitenoise.evans.io/en/stable/)
+
 # Testing and Development
 
 ## Sprints
 
-### Plan
+Scheduled Dates | Focus | Use Case(s) | Total | Dates Completed
+:--- | :--- | :--- | :---: | ---:
+24/04/22 - 30/04/22 <br> Week 1 | Initial Project Setup <br> and deployment | Log In <br> Log Out <br> User Profiles <br> Manage Users and Rights | 4 | 24/04/22 - 10/05/22 | 
+01/05/22 - 07/05/22 <br> Week 2 | Accounts | Accounts View <br> Access Individual Account Information <br> New Accounts <br> Edit Existing Accounts <br> Delete Existing Accounts | 5 | 24/05/22 - 29/05/22
+08/05/22 - 14/05/22 <br> Week 3 | Opportunities | View Opportunities <br> View Individual Opportunities <br> Create New Opportunities <br> Edit Existing Opportunities <br> Delete Existing Opportunities | 5 | 24/05/22 - 29/05/22
+15/05/22 - 21/05/22 <br> Week 4 | Contacts | View Contacts <br> View Individual Contacts <br> Create New Contacts <br> Edit Existing Contacts <br> Delete Existing Contacts | 5 | 24/05/22 - 29/05/22
+22/05/22 - 28/05/22 <br> Week 5 | Database & Admin | Manage Users and Rights | 4 | 24/05/22 - 29/05/22
+29/05/22 - 04/06/22 <br> Week 6 | Dashboard | Dashboard <br> Accounts, Contacts & Opportunity Access <br> Sales Overview | 3 | 24/05/22 - 20/06/22
+05/06/22 - 11/06/22 <br> Week 7 | Manual & Automated Testing |  | 0 | 21/06/22 - 26/06/22
+12/06/22 - 18/06/22 <br> Week 8 | Styling |  | 0 | 10/06/22 - 20/06/22
+19/06/22 - 25/06/22 <br> Week 9 | Submission Checks |  | 0 | 21/06/22 - 28/06/22
+26/06/22 - 30/06/22 <br> Submission | Submission |  | 0 | 30/06/22
 
-Dates | Focus | Use Case(s) | Total
-:--- | :--- | :--- | :---:
-24/04/22 - 30/04/22 <br> Week 1 | Initial Project Setup <br> and deployment | Log In <br> Log Out <br> User Profiles <br> Manage Users and Rights | 4
-01/05/22 - 07/05/22 <br> Week 2 | Accounts | Accounts View <br> Access Individual Account Information <br> New Accounts <br> Edit Existing Accounts <br> Delete Existing Accounts | 5
-08/05/22 - 14/05/22 <br> Week 3 | Opportunities | View Opportunities <br> View Individual Opportunities <br> Create New Opportunities <br> Edit Existing Opportunities <br> Delete Existing Opportunities | 5
-15/05/22 - 21/05/22 <br> Week 4 | Contacts | View Contacts <br> View Individual Contacts <br> Create New Contacts <br> Edit Existing Contacts <br> Delete Existing Contacts | 5
-22/05/22 - 28/05/22 <br> Week 5 | Database & Admin | Relate Accounts, Contacts and Opportunities <br> Delete Accounts, Contacts and Opportunities <br> Create Accounts, Contacts and Opportunities <br> Manage Users and Rights | 4
-29/05/22 - 04/06/22 <br> Week 6 | Dashboard | Dashboard <br> Accounts, Contacts & Opportunity Access <br> Sales Overview | 3
-05/06/22 - 11/06/22 <br> Week 7 | Manual & Automated Testing |  | 0
-12/06/22 - 18/06/22 <br> Week 8 | Styling |  | 0
-19/06/22 - 25/06/22 <br> Week 9 | Submission Checks |  | 0
-26/06/22 - 30/06/22 <br> Submission | Submission |  | 0
+## Manual Testing
 
-### Actuals
+Test | Desired Functionality | Working As Intended (Y / N)
+--- | --- | :---:
+Log In | Incorrect input results in error message. Correct input logs the user in | Yes
+Register | Accounts cannot be created with existing usernames. Successful registration results in message telling user to contact administrator | Yes
+Account Approval | Administrator needs to activate new user accounts | Yes
+Log Out | When a user clicks log out, they are redirected to the log out page and must log in again | Yes
+URLs | All URLs work as intended and redirect users to correct pages | Yes
+CRUD | Create, update and delete functionality in place across accounts, contacts and opportunities | Yes
+Profile | Profile is accessible and users can update their profile picture and username | Yes
+Admin | Only accessible by super user | Yes
+Cloudinary | CSS and images stored on cloudinary, including new uploads | Yes
+Responsiveness | All components collapse into mobile view | Yes
+Authentication | Users must be logged in to access certain pages | Yes
+Pagination | Paginates at 5 and links working correctly | Yes
 
-Dates | Focus | Use Case(s) | Total
-:--- | :--- | :--- | :---:
-24/04/22 - 30/04/22 <br> Week 1 | Initial Project Setup <br> and deployment | Log In <br> Log Out <br> User Profiles <br> Manage Users and Rights | 4
-01/05/22 - 07/05/22 <br> Week 2 | Accounts | Accounts View <br> Access Individual Account Information <br> New Accounts <br> Edit Existing Accounts <br> Delete Existing Accounts | 5
-08/05/22 - 14/05/22 <br> Week 3 | Opportunities | View Opportunities <br> View Individual Opportunities <br> Create New Opportunities <br> Edit Existing Opportunities <br> Delete Existing Opportunities | 5
-15/05/22 - 21/05/22 <br> Week 4 | Contacts | View Contacts <br> View Individual Contacts <br> Create New Contacts <br> Edit Existing Contacts <br> Delete Existing Contacts | 5
-22/05/22 - 28/05/22 <br> Week 5 | Database & Admin | Relate Accounts, Contacts and Opportunities <br> Delete Accounts, Contacts and Opportunities <br> Create Accounts, Contacts and Opportunities <br> Manage Users and Rights | 4
-29/05/22 - 04/06/22 <br> Week 6 | Dashboard | Dashboard <br> Accounts, Contacts & Opportunity Access <br> Sales Overview | 3
-05/06/22 - 11/06/22 <br> Week 7 | Manual & Automated Testing |  | 0
-12/06/22 - 18/06/22 <br> Week 8 | Styling |  | 0
-19/06/22 - 25/06/22 <br> Week 9 | Submission Checks |  | 0
-26/06/22 - 30/06/22 <br> Submission | Submission |  | 0
+## Automated Testing
 
+[Coverage](https://pypi.org/project/coverage/) was used to determine the test coverage for this project. 
+
+Original report can be found [here](assets\coverage\coverage.jpg), demonstrating 95% coverage.
 
 # Deployment
 
@@ -179,7 +230,7 @@ In order to make changes to this code without affecting the original code, you m
 1. Create a GitHub account (if you have one already, skip this step).
 2. Navigate to the [repository](https://github.com/AlexSD92/SalesBase).
 3. Near the top right, click 'Fork'.
-4. A copy of the repository will be available for you to use within your own remote repositories.
+4. A copy of the repository will be available for you to use within your own remote repository.
 
 In order to clone the repository, you must:
 
@@ -266,14 +317,13 @@ In order to clone the repository, you must:
     - Notice that Heroku has created a 'DATABASE_URL' for use later.
     - Include requirements.txt as a key and copy all of the contents of your requirements.txt in to the value field. 
     - Within your project folder and in the settings.py file, you should find a 'SECRET_KEY'. Include this as a key and the secret key as the value. You can edit this to be whatever you like, just be sure to include it in your Config vars. 
-    - Finally, you need to deal with any static files. The file key value pair you need to add is 'DISABLE_COLLECTSTATIC=1'.
-    - An alternative would be to use WhiteNoise. The documentation for installing whitenoise to a django project can be found [here](http://whitenoise.evans.io/en/stable/). If you are using WhiteNoise, then you don't need to set DISABLE_STATIC in Heroku.
+    - Finally, for development, you will need to disable the collection of static files. The file key value pair you need to add is 'DISABLE_COLLECTSTATIC=1'.
 23. Click on 'Add Buildpack' and select python, then 'Save changes'.
 
 ##### The final things you need to do locally
 
 24. At the top of your settings.py file, '*import os*' and '*import dj_database_url*'.
-25. Decide whether you want to set your 'DEBUG' as True or False.
+25. Ensure DEBUG is set to True for development purposes or True for production.
 26. Set your 'ALLOWED_HOST' to ['[*your heroku project name*].herokuapp.com']. For example, 'ALLOWED_HOSTS = ['salesbase.herokuapp.com']
 27. Comment out the existing database and include a new DATABASE setting. 
     - Go back to your Heroku config vars and grab the DATABASE_URL key value. 
@@ -292,3 +342,29 @@ In order to clone the repository, you must:
 31. Wait for Heroku to build your app and then open your app.
 32. You should view the following message 'The install worked succesfully! Congratulations!'. 
 
+# Credits
+
+1. [The Django Documentation](https://docs.djangoproject.com/en/4.0/)
+    - For the details of how django works.
+
+2. [W3Schools](https://www.w3schools.com/django/)
+    - For their Django tutorial.
+
+3. [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django)
+    - For their Django tutorial.
+
+4. [Corey Schafer](https://coreyms.com/development/python/python-django-tutorials-full-series)
+    - For excellent Python and Django explanations and tutorials.
+
+5. [Stack Overflow](https://stackoverflow.com/)
+    - Amazing forums with great and detailed discussions demonstrating how to write code and why it should be written that way.
+
+6. [Code Institute](https://codeinstitute.net/)
+    - For their learning platform and support. 
+
+7. Chris Quinn, Mentor
+    - Excellent resource and a wealth of knowledge and insight.
+
+---
+
+[RETURN TO THE TOP](#SalesBase)
