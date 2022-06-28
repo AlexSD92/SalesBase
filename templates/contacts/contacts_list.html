@@ -57,6 +57,8 @@
                     </tr>
                     {% endfor %}
 
+                    <!-- Pagination from Corey Schafer on https://www.youtube.com/watch?v=acOktTcTVEQ -->
+
                     {% if page_obj.has_previous %}
                         <a class="btn btn-sm btn-outline-secondary mb-1" href="?page=1">First</a>
                         <a class="btn btn-sm btn-outline-secondary mb-1" href="?page={{ page_obj.previous_page_number }}">Previous</a>
