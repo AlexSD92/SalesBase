@@ -130,9 +130,7 @@ Design a straight-forward CRM that is intuitive to use and has a small learning 
 
 ## Skeleton
 
-Desktop wireframes for the project can be found [here](assets\wireframes\desktop_wireframes.pdf).
-
-Mobile wireframes for the project can be found [here](assets\wireframes\mobile_wireframes.pdf)
+Mobile and desktop wireframes can be found [here](assets\wireframes).
 
 # Features
 
@@ -202,7 +200,7 @@ Scheduled Dates | Focus | Use Case(s) | Total | Dates Completed
 
 Test | Desired Functionality | Working As Intended (Y / N)
 --- | --- | :---:
-Log In | Incorrect input results in error message. Correct input logs the user in | Yes
+Log In | Incorrect input results in an error message. Correct input logs the user in | Yes
 Register | Accounts cannot be created with existing usernames. Successful registration results in message telling user to contact administrator | Yes
 Account Approval | Administrator needs to activate new user accounts | Yes
 Log Out | When a user clicks log out, they are redirected to the log out page and must log in again | Yes
@@ -243,7 +241,7 @@ In order to clone the repository, you must:
     - Use cd followed by the directory name to change directories.
     - use mkdir followed by a new directory name to create a new directory.
 6. Enter 'git clone https://github.com/AlexSD92/SalesBase.git'.
-7. The repository will be cloned in to your chosen directory.
+7. The repository will be cloned into your chosen directory.
 
 ## Local Deployment
 
@@ -255,7 +253,7 @@ In order to clone the repository, you must:
 5. Time to start the project, so type '*django-admin startproject [insert your project name here]*' and wait for the folders and files to be created. Our project is named *crm*.
 6. In your terminal, type '*python manage.py runserver*'
 7. Your project should be hosted locally.
-8. You should view the following message 'The install worked succesfully! Congratulations!'.
+8. You should view the following message 'The install worked successfully! Congratulations!'.
 
 ## Remote Deployment
 
@@ -266,10 +264,10 @@ In order to clone the repository, you must:
 2. Give your folder a project name, for example '*salesbase*'.
 3. Open up your terminal.
 4. First and foremost, install Django by typing '*pip install Django*', and wait for the installation to finish.
-5. Then install psycopg2-binary, gunicorn and dj-database-url by typing '*pip install psycopg2-binary gunicorn dj-database-url*' in to your terminal and wait for the installation to finish.
+5. Then install psycopg2-binary, gunicorn and dj-database-url by typing '*pip install psycopg2-binary gunicorn dj-database-url*' into your terminal and wait for the installation to finish.
 6. Time to start the project, so type '*django-admin startproject [insert your project name here]*' and wait for the folders and files to be created. Our project is named *crm*.
-7. In your root directory, use the following command to freeze your requiremens and create your requirements.txt file, '*pip freeze > requirements.txt*'.
-8. In your root directory, you also need to create a procfile. Create the file manually to avoid either case-sensitivity issues and to ensure that it only contains UTF-8 characters. This is done by right clicking in to your root directory and clicking *New File*. Name this file '*Procfile*'. Please note, no file extension is required. 
+7. In your root directory, use the following command to freeze your requirements and create your requirements.txt file, '*pip freeze > requirements.txt*'.
+8. In your root directory, you also need to create a procfile. Create the file manually to avoid case-sensitivity issues and to ensure that it only contains UTF-8 characters. This is done by right clicking in to your root directory and clicking *New File*. Name this file '*Procfile*'. Please note, no file extension is required. 
 9. Within the procfile, type the following: '*web: gunicorn [insert your project name here].wsgi*'. For example, for this project, you would type *web: gunicorn crm.wsgi*.
 10. Create your *.gitignore* and include:
     - *.log
@@ -291,8 +289,8 @@ In order to clone the repository, you must:
 
 11. Create a GitHub account if you don't already have one.
 12. Create a new repository by clicking the green button labelled as *New*, and name your repo the same as you named your project locally for consistency.
-13. Decide whether you want for the repo to be either public or private.
-14. Don't select to initialize your repository with any starting files, you can create these later on and push them to the repo. 
+13. Decide whether you want the repo to be either public or private.
+14. Don't select to initialise your repository with any starting files, you can create these later on and push them to the repo. 
 15. Click the green *Create repository* button.
 16. On your command line, execute the following:
     1. *git init*
@@ -315,7 +313,7 @@ In order to clone the repository, you must:
     - Then click 'Submit Order Form'
 22. Next head to your settings and click on 'Reveal Config Vars'.
     - Notice that Heroku has created a 'DATABASE_URL' for use later.
-    - Include requirements.txt as a key and copy all of the contents of your requirements.txt in to the value field. 
+    - Include requirements.txt as a key and copy all of the contents of your requirements.txt into the value field. 
     - Within your project folder and in the settings.py file, you should find a 'SECRET_KEY'. Include this as a key and the secret key as the value. You can edit this to be whatever you like, just be sure to include it in your Config vars. 
     - Finally, for development, you will need to disable the collection of static files. The file key value pair you need to add is 'DISABLE_COLLECTSTATIC=1'.
 23. Click on 'Add Buildpack' and select python, then 'Save changes'.
@@ -336,11 +334,11 @@ In order to clone the repository, you must:
 28. Head back to Heroku and click on the 'Deploy' tab.
 29. Select your 'Deployment method' as 'GitHub'. 
     - Follow the prompts to link your GitHub account.
-    - Search for the repository your created. 
+    - Search for the repository you created. 
     - Click 'Connect'.
 30. Head down to the 'Manual deploy' section and click on 'Deploy Branch'. 
 31. Wait for Heroku to build your app and then open your app.
-32. You should view the following message 'The install worked succesfully! Congratulations!'. 
+32. You should view the following message 'The install worked successfully! Congratulations!'. 
 
 # Credits
 
@@ -362,7 +360,10 @@ In order to clone the repository, you must:
 6. [Code Institute](https://codeinstitute.net/)
     - For their learning platform and support. 
 
-7. Chris Quinn, Mentor
+7. [Django for Beginners: Build Websites with Python and Django](https://djangoforbeginners.com/)
+    - A great, project-base resource for any beginner learning Django.
+
+8. Chris Quinn, Mentor
     - Excellent resource and a wealth of knowledge and insight.
 
 ---
