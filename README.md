@@ -4,6 +4,7 @@
 ##### This project was developed for the fourth project with the Code Institute and the Full Stack Development Course. 
 
 ### [Click here to view the app.](https://salesbase-asd.herokuapp.com/)
+##### To access the admin view you must be logged in as an admin user and enter https://salesbase-asd.herokuapp.com/admin/ in your browser
 
 ### [Click here to view the repository.](https://github.com/AlexSD92/SalesBase)
 
