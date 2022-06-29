@@ -38,7 +38,7 @@ class DashboardListView(ListView):
         return context
 
     def get_queryset(self):
-        return AccountsModel.objects.filter(owner = self.request.user)
+        return AccountsModel.objects.filter(owner = self.request.user)[:10]
 
 
 class CreateAccountsView(SuccessMessageMixin, CreateView):
