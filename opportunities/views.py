@@ -47,4 +47,4 @@ class DeleteOpportunitiesView(SuccessMessageMixin, DeleteView):
     model = OpportunitiesModel
     template_name = 'opportunities/opportunities_delete.html'
     success_url = reverse_lazy('opportunities-list-view')
-    success_message = 'Opportunity successfully updated!'
+    success_message = 'Opportunity successfully deleted!'

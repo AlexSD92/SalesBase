@@ -47,4 +47,4 @@ class DeleteContactsView(SuccessMessageMixin, DeleteView):
     model = ContactsModel
     template_name = 'contacts/contacts_delete.html'
     success_url = reverse_lazy('contacts-list-view')
-    success_message = 'Contact successfully updated!'
+    success_message = 'Contact successfully deleted!'
